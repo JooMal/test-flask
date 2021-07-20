@@ -1,9 +1,11 @@
 from flask import Flask, jsonify, request
 from flask_restx import Resource, Api
 from controller import getResults
+from flask_cors import CORS
 
 app = Flask(__name__)
 api = Api(app)
+CORS(app, resource={r"/api/*": {"origins": "*"}})
 
 @app.route("/")
 def index():
